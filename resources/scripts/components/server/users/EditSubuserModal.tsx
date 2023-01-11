@@ -110,9 +110,7 @@ const EditSubuserModal = ({ subuser }: Props) => {
                             : 'Create new subuser'}
                     </h2>
                     <div>
-                        <Button type={'submit'} css={tw`w-full sm:w-auto`}>
-                            {subuser ? 'Save' : 'Invite User'}
-                        </Button>
+                        <Button css={tw`w-full sm:w-auto`}>{subuser ? 'Save' : 'Invite User'}</Button>
                     </div>
                 </div>
                 <FlashMessageRender byKey={'user:edit'} css={tw`mt-4`} />
@@ -159,9 +157,7 @@ const EditSubuserModal = ({ subuser }: Props) => {
                 </div>
                 <Can action={subuser ? 'user.update' : 'user.create'}>
                     <div css={tw`pb-6 flex justify-end`}>
-                        <Button type={'submit'} css={tw`w-full sm:w-auto`}>
-                            {subuser ? 'Save' : 'Invite User'}
-                        </Button>
+                        <Button css={tw`w-full sm:w-auto`}>{subuser ? 'Save' : 'Invite User'}</Button>
                     </div>
                 </Can>
             </Form>

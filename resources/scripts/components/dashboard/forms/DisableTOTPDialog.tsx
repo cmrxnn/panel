@@ -57,7 +57,7 @@ const DisableTOTPDialog = () => {
                     disabled={password.length > 0}
                     content={'You must enter your account password to continue.'}
                 >
-                    <Button.Danger type={'submit'} form={'disable-totp-form'} disabled={submitting || !password.length}>
+                    <Button.Danger form={'disable-totp-form'} disabled={submitting || !password.length}>
                         Disable
                     </Button.Danger>
                 </Tooltip>

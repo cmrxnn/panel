@@ -58,9 +58,7 @@ const ModalContent = ({ ...props }: RequiredModalProps) => {
                     </div>
                 </Can>
                 <div css={tw`flex justify-end mt-6`}>
-                    <Button type={'submit'} disabled={isSubmitting}>
-                        Start backup
-                    </Button>
+                    <Button disabled={isSubmitting}>Start backup</Button>
                 </div>
             </Form>
         </Modal>

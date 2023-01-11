@@ -94,9 +94,7 @@ export default ({ database, className }: Props) => {
                                 >
                                     Cancel
                                 </Button>
-                                <Button.Danger type={'submit'} disabled={!isValid}>
-                                    Delete Database
-                                </Button.Danger>
+                                <Button.Danger disabled={!isValid}>Delete Database</Button.Danger>
                             </div>
                         </Form>
                     </Modal>

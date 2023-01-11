@@ -12,7 +12,6 @@ import tw from 'twin.macro';
 import { Button } from '@/components/elements/button';
 import Reaptcha from 'reaptcha';
 import useFlash from '@/plugins/useFlash';
-import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
 
 interface Values {
     email: string;
@@ -84,11 +83,9 @@ export default () => {
                         type={'email'}
                     />
                     <div css={tw`mt-6`}>
-                        <SpinnerOverlay visible={isSubmitting}>
-                            <Button type={'submit'} size={Button.Sizes.Large} disabled={isSubmitting}>
-                                Send Email
-                            </Button>
-                        </SpinnerOverlay>
+                        <Button size={Button.Sizes.Large} className={'w-full'} disabled={isSubmitting}>
+                            Send Email
+                        </Button>
                     </div>
                     {recaptchaEnabled && (
                         <Reaptcha
