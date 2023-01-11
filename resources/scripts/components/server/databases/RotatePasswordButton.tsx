@@ -5,8 +5,9 @@ import { ApplicationStore } from '@/state';
 import { ServerContext } from '@/state/server';
 import { ServerDatabase } from '@/api/server/databases/getServerDatabases';
 import { httpErrorToHuman } from '@/api/http';
-import Button from '@/components/elements/Button';
+import { Button } from '@/components/elements/button';
 import tw from 'twin.macro';
+import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
 
 export default ({ databaseId, onUpdate }: { databaseId: string; onUpdate: (database: ServerDatabase) => void }) => {
     const [loading, setLoading] = useState(false);
@@ -36,8 +37,10 @@ export default ({ databaseId, onUpdate }: { databaseId: string; onUpdate: (datab
     };
 
     return (
-        <Button isSecondary color={'primary'} css={tw`mr-2`} onClick={rotate} isLoading={loading}>
-            Rotate Password
-        </Button>
+        <SpinnerOverlay visible={loading}>
+            <Button variant={Button.Variants.Secondary} css={tw`mr-2`} onClick={rotate}>
+                Rotate Password
+            </Button>
+        </SpinnerOverlay>
     );
 };

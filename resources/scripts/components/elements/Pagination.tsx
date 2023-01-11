@@ -2,7 +2,7 @@ import React from 'react';
 import { PaginatedResult } from '@/api/http';
 import tw from 'twin.macro';
 import styled from 'styled-components/macro';
-import Button from '@/components/elements/Button';
+import { Button } from '@/components/elements/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -49,13 +49,13 @@ function Pagination<T>({ data: { items, pagination }, onPageSelect, children }: 
             {pages.length > 1 && (
                 <div css={tw`mt-4 flex justify-center`}>
                     {pages[0] > 1 && !isFirstPage && (
-                        <Block isSecondary color={'primary'} onClick={() => onPageSelect(1)}>
+                        <Block variant={Button.Variants.Secondary} onClick={() => onPageSelect(1)}>
                             <FontAwesomeIcon icon={faAngleDoubleLeft} />
                         </Block>
                     )}
                     {pages.map((i) => (
                         <Block
-                            isSecondary={pagination.currentPage !== i}
+                            variant={pagination.currentPage !== i ? Button.Variants.Secondary : Button.Variants.Primary}
                             color={'primary'}
                             key={`block_page_${i}`}
                             onClick={() => onPageSelect(i)}
@@ -64,7 +64,7 @@ function Pagination<T>({ data: { items, pagination }, onPageSelect, children }: 
                         </Block>
                     ))}
                     {pages[4] < pagination.totalPages && !isLastPage && (
-                        <Block isSecondary color={'primary'} onClick={() => onPageSelect(pagination.totalPages)}>
+                        <Block variant={Button.Variants.Secondary} onClick={() => onPageSelect(pagination.totalPages)}>
                             <FontAwesomeIcon icon={faAngleDoubleRight} />
                         </Block>
                     )}

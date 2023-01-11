@@ -9,7 +9,8 @@ import useFlash from '@/plugins/useFlash';
 import { FlashStore } from '@/state/flashes';
 import Field from '@/components/elements/Field';
 import tw from 'twin.macro';
-import Button from '@/components/elements/Button';
+import { Button } from '@/components/elements/button';
+import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
 
 interface Values {
     code: string;
@@ -44,9 +45,11 @@ const LoginCheckpointContainer = () => {
                 />
             </div>
             <div css={tw`mt-6`}>
-                <Button size={'xlarge'} type={'submit'} disabled={isSubmitting} isLoading={isSubmitting}>
-                    Continue
-                </Button>
+                <SpinnerOverlay visible={isSubmitting}>
+                    <Button size={Button.Sizes.Large} type={'submit'} disabled={isSubmitting}>
+                        Continue
+                    </Button>
+                </SpinnerOverlay>
             </div>
             <div css={tw`mt-6 text-center`}>
                 <span

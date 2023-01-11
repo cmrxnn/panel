@@ -11,7 +11,8 @@ import { object, ref, string } from 'yup';
 import Field from '@/components/elements/Field';
 import Input from '@/components/elements/Input';
 import tw from 'twin.macro';
-import Button from '@/components/elements/Button';
+import { Button } from '@/components/elements/button';
+import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
 
 interface Values {
     password: string;
@@ -79,9 +80,11 @@ export default ({ match, location }: RouteComponentProps<{ token: string }>) => 
                         <Field light label={'Confirm New Password'} name={'passwordConfirmation'} type={'password'} />
                     </div>
                     <div css={tw`mt-6`}>
-                        <Button size={'xlarge'} type={'submit'} disabled={isSubmitting} isLoading={isSubmitting}>
-                            Reset Password
-                        </Button>
+                        <SpinnerOverlay visible={isSubmitting}>
+                            <Button size={Button.Sizes.Large} type={'submit'} disabled={isSubmitting}>
+                                Reset Password
+                            </Button>
+                        </SpinnerOverlay>
                     </div>
                     <div css={tw`mt-6 text-center`}>
                         <Link

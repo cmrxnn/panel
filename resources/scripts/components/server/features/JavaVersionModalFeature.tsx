@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ServerContext } from '@/state/server';
 import Modal from '@/components/elements/Modal';
 import tw from 'twin.macro';
-import Button from '@/components/elements/Button';
+import { Button } from '@/components/elements/button';
 import setSelectedDockerImage from '@/api/server/setSelectedDockerImage';
 import FlashMessageRender from '@/components/FlashMessageRender';
 import useFlash from '@/plugins/useFlash';
@@ -101,7 +101,11 @@ const JavaVersionModalFeature = () => {
                 </div>
             </Can>
             <div css={tw`mt-8 flex flex-col sm:flex-row justify-end sm:space-x-4 space-y-4 sm:space-y-0`}>
-                <Button isSecondary onClick={() => setVisible(false)} css={tw`w-full sm:w-auto`}>
+                <Button
+                    variant={Button.Variants.Secondary}
+                    onClick={() => setVisible(false)}
+                    css={tw`w-full sm:w-auto`}
+                >
                     Cancel
                 </Button>
                 <Can action={'startup.docker-image'}>
